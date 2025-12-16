@@ -1,71 +1,114 @@
 import React, { useRef } from "react";
 import logo from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/Logo.png';
 import logoTop from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/Logo Top.png'
-import aircraft from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/Aircraft3.png'
+import bgimage from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/image6.png'
+import shadow from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/Shadow.png'
+import ufo from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/Ufo.png'
+import slogan from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/Slogan.png'
+import menu from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/Menu.svg'
 import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
+import { MotionPathPlugin } from "gsap/all";
+import { Link } from "react-router-dom";
+
+gsap.registerPlugin(MotionPathPlugin)
 const NeonHelipad = () => {
-  const planeRef=useRef(null);
+  const planeRef = useRef(null);
+  const shadowContainerRef = useRef(null);
+  const ufoRef = useRef(null);
+  const sloganref = useRef(null);
 
   useGSAP(() => {
     const tl = gsap.timeline();
+    tl.to(planeRef.current, {
+      y: -250,
+      duration: 3,
+      ease: "power2.inOut",
+      delay: 2
+    });
+    tl.to(planeRef.current, {
+      y: "-=30",
+      yoyo: true,
+      repeat: -1,
+      duration: 1.5,
+      ease: "sine.inOut"
+    });
+    gsap.to(shadowContainerRef.current, {
+      xPercent: -50,
+      duration: 5,
+      repeat: -1,
+      ease: "none",
+    });
+    gsap.to(ufoRef.current, {
+      duration: 15,
+      ease: "power1.inOut",
+      repeat: -1,
+      motionPath: {
+        path: "M -200 0 C 300 100 800 -200 1800 -500",
 
-    tl.to(".guide-light",{
-      backgroundColor: "#008000",
-      duration:0.5,
+        autoRotate: true,
+        alignOrigin: [0.5, 0.5],
+      }
     })
-    tl.to(planeRef.current, {
-      y: -250,            
-      duration: 3,       
-      ease: "power2.inOut", 
-      delay: 2       
-    });
-    tl.to(".guide-light",{
-      backgroundColor: "#F22900",
-      duration:1,
+    const sl = gsap.timeline()
+    sl.to(sloganref.current, {
+      x: 430,
+      duration: 5,
+      delay: 1
     })
-    tl.to(planeRef.current, {
-      y: "-=30",          
-      yoyo: true,         
-      repeat: -1,         
-      duration: 1.5,     
-      ease: "sine.inOut" 
-    });
+    sl.to(sloganref.current, {
+      y: -250,
+      duration: 5
+    })
+    sl.to(sloganref.current, {
+      y: '-=15',
+      yoyo: true,
+      repeat: -1,
+      duration: 2,
+      ease: "sine.inOut"
+    })
   });
-
 
   return (
     <div className="relative w-full h-screen bg-[#05000a] overflow-hidden flex flex-col items-center justify-end">
-       <div className="top-0 absolute left-0 h-full w-full bg-linear-to-b from-[#1a0b2e] to-[#000000]"></div>
-
-       <div>
-        <div className="top-0 left-2 absolute h-[10vw] w-[10vw]">
-          <img className="h-[8vw] w-[8vw]" src={logoTop}></img>
+      <img src={bgimage} className="h-full w-full top-0 left-0 absolute blur-[2px]" alt="Background"></img>
+      <div className="h-[10vw] w-full absolute top-0 left-0 justify-center align-middle">
+        <div className="top-0 left-2 absolute h-full w-[10vw]">
+          <img className="h-[8vw] w-[8vw]" src={logoTop} alt="Logo Top"></img>
         </div>
-        <div>
-
-        </div>
-
-       </div>
-
-       <div>
-        <img src={logo} className="h-[12vw] w-[30vw] top-50 left-130 absolute"></img>
-        </div>
-        
-
-      <div className="absolute bottom-[-10%] w-full h-[50vh] flex justify-center items-center perspective-container">
-        <div className="relative w-[300px] h-[300px] bg-[#111] border-[1px] border-white/10 rounded-full shadow-2xl helipad-tilt flex justify-center items-center">
-          <div className="absolute inset-[20px] border-[8px] border-[#ff00ff] rounded-full shadow-[0_0_50px_#ff00ff] opacity-80"></div>
-          <div className="absolute inset-[10px] border-[2px] border-dashed border-[#ff00ff]/30 rounded-full animate-spin-slow"></div>
-          <h1 className="text-[150px] font-black text-transparent bg-clip-text bg-linear-to-b from-[#ff00ff] to-[#aa00aa] drop-shadow-[0_0_30px_#ff00ff] select-none" style={{ fontFamily: 'Arial, sans-serif' }}>
-            H</h1>
-          <div className="guide-light absolute top-10 left-1/2 -translate-x-1/2 w-4 h-4 bg-white rounded-full shadow-[0_0_20px_white] animate-pulse"></div>
-          <div className="guide-light absolute bottom-10 left-1/2 -translate-x-1/2 w-4 h-4 bg-white rounded-full shadow-[0_0_20px_white] animate-pulse"></div>
+        <div className="flex justify-center align-middle">
+          <div className="h-full w-[2vw] absolute top-8 right-40 ">
+            <Link className=" w-[5vw] text-[1.5vw] hover:text-pink-600 hover:border-purple-700 text-white hover:cursor-pointer p-2 border border-white rounded-full" to='/signin'>Login</Link>
+          </div>
+          <div className=" absolute top-8 right-10 h-full hover:cursor-pointer  hover:text-pink-600">
+            <img src={menu} className="w-[2vw]"></img>
+          </div>
         </div>
       </div>
-      <div  ref={planeRef} className="absolute bottom-[0%] left-1/2 -translate-x-1/2 z-20 pointer-events-none">
-          <img src={aircraft} className="h-[15vw] w-[22vw] object-contain" alt="aircraft" />
+      <div>
+        <img src={ufo} ref={ufoRef} className="top-100 h-[4vw] left-0 w-[4vw] absolute"></img>
+      </div>
+      <div className="absolute top-90 left-0 w-full h-full overflow-hidden pointer-events-none">
+        <div ref={shadowContainerRef} className="flex w-[200%] h-full">
+          <img
+            src={shadow}
+            className="w-1/2 h-full object-cover opacity-90"
+            alt="Shadow Fog 1"
+          />
+          <img
+            src={shadow}
+            className="w-1/2 h-full object-cover opacity-90"
+            alt="Shadow Fog 2"
+          />
         </div>
+      </div>
+
+      <div>
+        <img src={slogan} ref={sloganref} className="top-150 left-0 h-[40vw] w-[40vw] absolute"></img>
+      </div>
+      <div>
+        <img src={logo} className="h-[12vw] w-[30vw] top-60 left-130 absolute" alt="Main Logo"></img>
+      </div>
 
     </div>
   );
