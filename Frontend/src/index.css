@@ -1,18 +1,7 @@
 @import "tailwindcss";
-.perspective-container {
-  perspective: 1000px;
-}
 
-.helipad-tilt {
-  transform: rotateX(60deg) scale(1.5);
-  transform-style: preserve-3d;
-  background: radial-gradient(circle, #130329 0%, #000000 70%); 
-  box-shadow: 0 0 100px rgba(255, 0, 255, 0.1);
-}
-@keyframes spin-slow {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-.animate-spin-slow {
-  animation: spin-slow 30s linear infinite;
+.vt323-regular {
+  font-family: "VT323", monospace;
+  font-weight: 400;
+  font-style: normal;
 }

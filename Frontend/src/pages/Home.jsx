@@ -1,15 +1,12 @@
 import React, { useRef } from "react";
 import logo from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/Logo.png';
-import logoTop from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/Logo Top.png'
 import bgimage from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/image6.png'
 import shadow from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/Shadow.png'
 import ufo from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/Ufo.png'
 import slogan from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/Slogan.png'
-import menu from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/Menu.svg'
 import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { MotionPathPlugin } from "gsap/all";
-import { Link } from "react-router-dom";
 
 gsap.registerPlugin(MotionPathPlugin)
 const NeonHelipad = () => {
@@ -58,13 +55,13 @@ const NeonHelipad = () => {
     })
     sl.to(sloganref.current, {
       y: -250,
-      duration: 5
+      duration: 3
     })
     sl.to(sloganref.current, {
       y: '-=15',
       yoyo: true,
       repeat: -1,
-      duration: 2,
+      duration: 1,
       ease: "sine.inOut"
     })
   });
@@ -72,19 +69,7 @@ const NeonHelipad = () => {
   return (
     <div className="relative w-full h-screen bg-[#05000a] overflow-hidden flex flex-col items-center justify-end">
       <img src={bgimage} className="h-full w-full top-0 left-0 absolute blur-[2px]" alt="Background"></img>
-      <div className="h-[10vw] w-full absolute top-0 left-0 justify-center align-middle">
-        <div className="top-0 left-2 absolute h-full w-[10vw]">
-          <img className="h-[8vw] w-[8vw]" src={logoTop} alt="Logo Top"></img>
-        </div>
-        <div className="flex justify-center align-middle">
-          <div className="h-full w-[2vw] absolute top-8 right-40 ">
-            <Link className=" w-[5vw] text-[1.5vw] hover:text-pink-600 hover:border-purple-700 text-white hover:cursor-pointer p-2 border border-white rounded-full" to='/signin'>Login</Link>
-          </div>
-          <div className=" absolute top-8 right-10 h-full hover:cursor-pointer  hover:text-pink-600">
-            <img src={menu} className="w-[2vw]"></img>
-          </div>
-        </div>
-      </div>
+      
       <div>
         <img src={ufo} ref={ufoRef} className="top-100 h-[4vw] left-0 w-[4vw] absolute"></img>
       </div>
