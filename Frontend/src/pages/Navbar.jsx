@@ -20,7 +20,7 @@ const Navbar = () => {
                     <Link className='vt323-regular text-4xl text-white uppercase hover:text-purple-500 transition-colors' to='/projects'>Projects</Link>
                 </div>
                 <div>
-                    <Link className='vt323-regular text-4xl text-white uppercase hover:text-purple-500 transition-colors' to='/members'>Resources</Link>
+                    <Link className='vt323-regular text-4xl text-white uppercase hover:text-purple-500 transition-colors' to='/resources'>Resources</Link>
                 </div>
             </div>
             <svg className="h-[2.5vw]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"></svg>

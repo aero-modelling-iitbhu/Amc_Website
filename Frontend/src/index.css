@@ -5,3 +5,17 @@
   font-weight: 400;
   font-style: normal;
 }
+.movex{
+  animation-name: moveanimation;
+  animation-duration: 5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes moveanimation{
+  from{
+    transform: translateX(0%);
+  }to{
+    transform: translateX(-100%);
+  }
+}
