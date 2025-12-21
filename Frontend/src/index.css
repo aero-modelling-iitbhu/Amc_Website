@@ -11,11 +11,39 @@
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
-
+.helma{
+  animation: animatehelma;
+  animation-duration: 10s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+.helmb{
+  animation: animatehelmb;
+  animation-duration: 10s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
 @keyframes moveanimation{
   from{
     transform: translateX(0%);
   }to{
     transform: translateX(-100%);
+  }
+}
+
+@keyframes animatehelma{
+  from{
+    transform: translateX(0%);
+
+  }to{
+    transform: translateX(-50%);
+  }
+}
+@keyframes animatehelmb{
+  from{
+    transform: translateX(-50%);
+
+  }to{
+    transform: translateX(0%);
   }
 }
