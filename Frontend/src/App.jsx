@@ -8,6 +8,7 @@ import Ardupilot from './components/ResourcesComp/Ardupilot'
 import PX4Installation from './components/ResourcesComp/Px4'
 import DroneComponentSelection from './components/ResourcesComp/DroneComponentSelection'
 import Members from './pages/Members'
+import Projects from './pages/Projects'
 const App = () => {
   return (
     <div>
@@ -20,6 +21,7 @@ const App = () => {
           <Route path="/resources/px4" element={<PX4Installation></PX4Installation>}></Route>
           <Route path="/resources/components" element={<DroneComponentSelection/>}></Route>
           <Route path="/helm" element={<Members/>}></Route>
+          <Route path='/projects' element={<Projects/>}></Route>
         </Routes>
     </div>
   )

@@ -5,7 +5,7 @@ import SCTM1 from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/Helm
 import TIC from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/Helm_Images/2024-25/Images/Siddharth.jpg'
 import SCTM2 from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/Helm_Images/2024-25/Images/Tridip.jpg'
 import DH from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/Helm_Images/2024-25/Images/Vishu.jpg'
-import ARC from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/Helm_Images/2024-25/Images/Chetan.jpg'
+import ARC from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/Helm_Images/2024-25/Images/Chetan.png'
 export const HelmInfo=[
     {
         img:Secy,
