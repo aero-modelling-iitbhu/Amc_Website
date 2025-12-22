@@ -34,7 +34,13 @@ const Projects = () => {
         {projects.map(function (elem, idx) {
           return (
             <div key={idx} className='hero w-full lg:h-212.5 mb-8 flex lg:flex-row flex-col lg:gap-4 gap-2 overflow-hidden'>
-              <ProjectCard image1={elem.display1.img} image2={elem.display2.img} nav1={elem.display1.navilik} nav2={elem.display2.navilik}/>
+              <ProjectCard image1={elem.display1.img} image2={elem.display2.img} 
+              nav1={elem.display1.navilik} nav2={elem.display2.navilik}
+              name1={elem.display1.name}  name2={elem.display2.name}
+              gitlink1={elem.display1.githubLink} gitlink2={elem.display2.githubLink}
+              des1={elem.display1.projectDescription} des2={elem.display2.projectDescription}
+              vid1={elem.display1.VideoLink} vid2={elem.display2.VideoLink}
+              />
             </div>
           )
         })}
