@@ -9,6 +9,8 @@ import PX4Installation from './components/ResourcesComp/Px4'
 import DroneComponentSelection from './components/ResourcesComp/DroneComponentSelection'
 import Members from './pages/Members'
 import Projects from './pages/Projects'
+import Competetions from './pages/Competeitions'
+import Victory from './pages/Victory'
 const App = () => {
   return (
     <div>
@@ -22,6 +24,8 @@ const App = () => {
           <Route path="/resources/components" element={<DroneComponentSelection/>}></Route>
           <Route path="/helm" element={<Members/>}></Route>
           <Route path='/projects' element={<Projects/>}></Route>
+          <Route path='/competitions' element={<Competetions/>}></Route>
+          <Route path='/victory' element={<Victory/>}></Route>
         </Routes>
     </div>
   )
