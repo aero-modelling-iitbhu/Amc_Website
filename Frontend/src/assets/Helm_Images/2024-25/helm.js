@@ -1,4 +1,4 @@
-import Secy from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/Helm_Images/2024-25/Images/SahilS.jpg'
+import Secy from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/Helm_Images/2024-25/Images/SahilS.png'
 import JSecy1 from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/Helm_Images/2024-25/Images/ShaneshJs.png'
 import JSecy2 from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/Helm_Images/2024-25/Images/Shubham.png'
 import SCTM1 from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/Helm_Images/2024-25/Images/Arpan.jpeg'

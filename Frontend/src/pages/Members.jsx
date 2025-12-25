@@ -27,10 +27,10 @@ const Members = () => {
 
                 <div className="absolute h-[6vw] w-full top-[65%] overflow-hidden flex items-center z-20 pointer-events-none">
                     <div className="helmb flex whitespace-nowrap">
-                        <div className="text-purple-500 text-[6vw] uppercase vt323-regular  px-4">
+                        <div className="text-[#D3FD50] text-[6vw] uppercase vt323-regular  px-4">
                             {Members.name} &nbsp;&nbsp;&nbsp;&nbsp; {Members.name} &nbsp;&nbsp;&nbsp;&nbsp;
                         </div>
-                        <div className="text-purple-500 text-[6vw] uppercase vt323-regular px-4">
+                        <div className="text-[#D3FD50] text-[6vw] uppercase vt323-regular px-4">
                             {Members.name} &nbsp;&nbsp;&nbsp;&nbsp; {Members.name} &nbsp;&nbsp;&nbsp;&nbsp;
                         </div>
                     </div>
