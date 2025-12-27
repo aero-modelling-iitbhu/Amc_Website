@@ -11,6 +11,9 @@ import Members from './pages/Members'
 import Projects from './pages/Projects'
 import Competetions from './pages/Competeitions'
 import Victory from './pages/Victory'
+import AeroArcadeEx from './components/Explore/AeroArcadeEx'
+import Wintercamp from './components/Explore/Wintercamp'
+import SummerCamp from './components/Explore/SummerCamp'
 const App = () => {
   return (
     <div>
@@ -26,6 +29,9 @@ const App = () => {
           <Route path='/projects' element={<Projects/>}></Route>
           <Route path='/competitions' element={<Competetions/>}></Route>
           <Route path='/victory' element={<Victory/>}></Route>
+          <Route path='/explorearcade' element={<AeroArcadeEx/>}></Route>
+          <Route path='/explorewinter' element={<Wintercamp/>}></Route>
+          <Route path='/exploresummer' element={<SummerCamp/>}></Route>
         </Routes>
     </div>
   )

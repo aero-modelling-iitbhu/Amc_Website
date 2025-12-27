@@ -6,13 +6,13 @@ export const Competetion=[
         name:"AeroArcade",
         img:Aeroarcade,
         description:"AeroArcade: Push your drone to the limit through loops, locks, and landings.",
-        ExploreLink:"/projects",
+        ExploreLink:"/explorearcade",
         RegisterLink:"/projects"
     },{
          name:"WinterCamp",
         img:Wintercamp,
         description:"From Simulation to Sight: Redefining Drone Intelligence this Winter.",
-        ExploreLink:"/projects",
+        ExploreLink:"/explorewinter",
         RegisterLink:"/projects"
     },{
          name:"AeroArcade",
@@ -25,7 +25,7 @@ export const Competetion=[
          name:"SummerCamp",
         img:Summercamp,
         description:"Earn entry in Club:Master hardware selection and power your flight with ROS.",
-        ExploreLink:"",
+        ExploreLink:"/exploresummer",
         RegisterLink:""
     }
 ]
