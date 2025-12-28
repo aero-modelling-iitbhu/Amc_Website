@@ -5,7 +5,7 @@ import ExploreCard from './ExploreCard'
 const AeroArcadeEx = () => {
     return (
         <div className='bg-black fixed h-screen w-full '>
-            <ExploreCard image={compimage} name="AeroArcade" registerlink="" whatsapp="" ps="" pastwinner=""
+            <ExploreCard image={compimage} name="AeroArcade" registerlink="/register/AeroArcade" whatsapp="" ps="" pastwinner=""
 
                 des="AeroArcade is a flagship drone-flying competition organized by Aero Modelling Club IIT BHU.
 It introduces participants to hands-on drone piloting through an exciting arena-based challenge featuring precision loops and obstacle navigation.

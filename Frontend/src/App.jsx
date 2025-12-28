@@ -14,6 +14,11 @@ import Victory from './pages/Victory'
 import AeroArcadeEx from './components/Explore/AeroArcadeEx'
 import Wintercamp from './components/Explore/Wintercamp'
 import SummerCamp from './components/Explore/SummerCamp'
+import Vtolexplore from './components/Explore/Vtolexplore'
+import AeroArcadeRegister from './components/ResourcesComp/RegisterComp/AeroArcadeRegister'
+import WinterCampRegister from './components/ResourcesComp/RegisterComp/WinterCampRegister'
+import SummercampRegister from './components/ResourcesComp/RegisterComp/SummercampRegister'
+import VtolCompRegister from './components/ResourcesComp/RegisterComp/VtolCompRegister'
 const App = () => {
   return (
     <div>
@@ -29,9 +34,14 @@ const App = () => {
           <Route path='/projects' element={<Projects/>}></Route>
           <Route path='/competitions' element={<Competetions/>}></Route>
           <Route path='/victory' element={<Victory/>}></Route>
-          <Route path='/explorearcade' element={<AeroArcadeEx/>}></Route>
-          <Route path='/explorewinter' element={<Wintercamp/>}></Route>
-          <Route path='/exploresummer' element={<SummerCamp/>}></Route>
+          <Route path='/explore/arcade' element={<AeroArcadeEx/>}></Route>
+          <Route path='/explore/winter' element={<Wintercamp/>}></Route>
+          <Route path='/explore/vtol' element={<Vtolexplore/>}></Route>
+          <Route path='/explore/summer' element={<SummerCamp/>}></Route>
+          <Route path='/register/AeroArcade' element={<AeroArcadeRegister/>}></Route>
+          <Route path='/register/winter' element={<WinterCampRegister/>}></Route>
+          <Route path='/register/summer' element={<SummercampRegister/>}></Route>
+          <Route path='/register/vtol' element={<VtolCompRegister/>}></Route>
         </Routes>
     </div>
   )
