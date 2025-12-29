@@ -19,6 +19,7 @@ import AeroArcadeRegister from './components/ResourcesComp/RegisterComp/AeroArca
 import WinterCampRegister from './components/ResourcesComp/RegisterComp/WinterCampRegister'
 import SummercampRegister from './components/ResourcesComp/RegisterComp/SummercampRegister'
 import VtolCompRegister from './components/ResourcesComp/RegisterComp/VtolCompRegister'
+import Alumni from './pages/Alumni'
 const App = () => {
   return (
     <div>
@@ -42,6 +43,7 @@ const App = () => {
           <Route path='/register/winter' element={<WinterCampRegister/>}></Route>
           <Route path='/register/summer' element={<SummercampRegister/>}></Route>
           <Route path='/register/vtol' element={<VtolCompRegister/>}></Route>
+          <Route path='/alumni' element={<Alumni/>}></Route>
         </Routes>
     </div>
   )

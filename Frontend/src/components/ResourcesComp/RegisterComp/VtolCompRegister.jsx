@@ -1,12 +1,22 @@
 import React, { useState, useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import bgVideo from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/Competetions/Register/Registervideo.mp4';
+import upiImage from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/Payment/UpiImage.png'
+const name = "Vtol'26" //comp name 
+const totalPrice = 2000; //price
 
-const AeroArcadeForm = () => {
+const VtolcompRegister = () => {
   const [teamSize, setTeamSize] = useState(0);
+  const [submitted, setSubmitted] = useState(false);
+  const [txnId, setTxnId] = useState('');
+  const [payeeName, setPayeeName] = useState('');
   const containerRef = useRef(null);
+  const [currentTime, setCurrentTime] = useState('');
 
   useEffect(() => {
+    const now = new Date();
+    setCurrentTime(now.toLocaleString());
+
     const ctx = gsap.context(() => {
       gsap.from(".form-panel", {
         x: -100,
@@ -15,25 +25,80 @@ const AeroArcadeForm = () => {
         duration: 1,
         ease: "power4.out"
       });
-      
-      gsap.from(".header-text", {
-        y: -50,
-        opacity: 0,
-        duration: 1,
-        delay: 0.5
-      });
     }, containerRef);
     return () => ctx.revert();
-  }, []);
+  }, [submitted]);
 
-  useEffect(() => {
-    gsap.fromTo(".wingman-panel", 
-      { scale: 0.9, opacity: 0 }, 
-      { scale: 1, opacity: 1, duration: 0.4, stagger: 0.1, ease: "back.out(1.7)" }
+  const handleDownload = () => {
+    window.print();
+  };
+
+  if (submitted) {
+    return (
+      <div className="min-h-screen w-full  bg-black font-['VT323'] py-20 px-4 flex flex-col items-center justify-center overflow-x-hidden text-white ">
+        <video src={bgVideo} autoPlay loop muted playsInline className="fixed inset-0 h-full w-full object-cover blur-md brightness-[0.3]" />
+        
+        <div id="invoice-capture" className="relative z-10 w-full max-w-2xl bg-black/80 border-2 border-cyan-500 p-10 backdrop-blur-xl shadow-[0_0_50px_rgba(34,211,238,0.2)] mt-10">
+          <div className="border-b-2 border-cyan-500 pb-6 mb-8 flex justify-between items-start">
+            <div>
+              <h1 className="text-5xl uppercase tracking-tighter">Mission Receipt</h1>
+              <p className="text-cyan-400 tracking-[0.3em]">OPERATION: {name}</p>
+            </div>
+            <div className="text-right">
+              <p className="text-xs opacity-50">STATUS: VERIFIED</p>
+              <p className="text-xs opacity-50">AUTH_NO: {Math.floor(Math.random() * 1000000)}</p>
+            </div>
+          </div>
+
+          <div className="space-y-6 text-2xl uppercase">
+            <div className="flex justify-between border-b border-white/10 py-2">
+              <span className="text-cyan-500/70">Lead Pilot</span>
+              <span>{payeeName || "PILOT_01"}</span>
+            </div>
+            <div className="flex justify-between border-b border-white/10 py-2">
+              <span className="text-cyan-500/70">Squadron Size</span>
+              <span>{teamSize + 1} Units</span>
+            </div>
+            <div className="flex justify-between border-b border-white/10 py-2">
+              <span className="text-cyan-500/70">Transaction ID</span>
+              <span className="text-purple-400">{txnId || "TXN_NULL"}</span>
+            </div>
+            <div className="flex justify-between border-b border-white/10 py-2">
+              <span className="text-cyan-500/70">Deployment Time</span>
+              <span>{currentTime}</span>
+            </div>
+            <div className="flex justify-between pt-8">
+              <span className="text-3xl">Total Credits</span>
+              <span className="text-4xl text-green-400 font-bold">₹{totalPrice}</span>
+            </div>
+          </div>
+
+          <div className="mt-12 flex gap-4 no-print">
+            <button 
+              onClick={handleDownload}
+              className="flex-1 bg-cyan-500 text-black py-4 text-2xl font-bold hover:bg-white transition-colors cursor-pointer"
+            >
+              SAVE MANIFEST (PDF)
+            </button>
+            <button 
+              onClick={() => window.location.reload()}
+              className="flex-1 border border-white/30 py-4 text-2xl hover:bg-white/10 transition-colors cursor-pointer"
+            >
+              RETURN
+            </button>
+          </div>
+        </div>
+        
+        <style>{`
+          @media print {
+            .no-print { display: none !important; }
+            body { background: white; }
+            #invoice-capture { border: 2px solid black; color: black; background: white; box-shadow: none; }
+          }
+        `}</style>
+      </div>
     );
-  }, [teamSize]);
-
-  const totalPrice = 2000;
+  }
 
   return (
     <div ref={containerRef} className="relative min-h-screen w-full bg-black font-['VT323'] py-20 px-4 flex flex-col items-center overflow-x-hidden">
@@ -43,17 +108,13 @@ const AeroArcadeForm = () => {
         className="fixed inset-0 h-full w-full object-cover blur-sm brightness-[0.5]"
       />
       <div className="relative z-10 w-full max-w-5xl flex flex-col gap-6 mt-15">
-        <div className="form-panel  p-8 backdrop-blur-md">
+        <div className="form-panel p-8 backdrop-blur-md">
           <div className="flex justify-between items-end">
             <div>
               <p className="text-cyan-400 text-xl tracking-[0.3em] uppercase">Deployment Manifest</p>
               <h1 className="header-text text-7xl md:text-9xl text-white uppercase tracking-tighter ">
-                Vtol'26
+                {name}
               </h1>
-            </div>
-            <div className="text-right hidden md:block">
-              <p className="text-white/35 text-sm tracking-widest uppercase">System Status: Active</p>
-              <p className="text-white/35 text-sm tracking-widest uppercase">Encryption: AES-256</p>
             </div>
           </div>
         </div>
@@ -63,43 +124,21 @@ const AeroArcadeForm = () => {
             <div className="h-4 w-4 bg-cyan-500 animate-pulse"></div>
             <h2 className="text-3xl text-cyan-500 uppercase tracking-widest font-bold">Primary Pilot (Leader)</h2>
           </div>
-          
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
-            <div className="group">
-              <label className="label-text">Pilot Name</label>
-              <input type="text" placeholder="REQUIRED" className="cyber-input" />
-            </div>
-            <div className="group">
-              <label className="label-text">Roll Identification</label>
-              <input type="text" placeholder="ID_NUM" className="cyber-input" />
-            </div>
-            <div className="group">
-              <label className="label-text">Comm Channel (Email)</label>
-              <input type="email" placeholder="PILOT@AMC.iitbhu" className="cyber-input" />
-            </div>
-            <div className="group">
-              <label className="label-text">Squadron (Dept)</label>
-              <input type="text" placeholder="SECTOR" className="cyber-input" />
-            </div>
+            <input type="text" placeholder="PILOT NAME" className="cyber-input" value={payeeName} onChange={(e) => setPayeeName(e.target.value)} />
+            <input type="text" placeholder="ROLL IDENTIFICATION" className="cyber-input" />
+            <input type="email" placeholder="COMM CHANNEL (EMAIL)" className="cyber-input" />
+            <input type="text" placeholder="SQUADRON (DEPT)" className="cyber-input" />
           </div>
         </div>
 
         <div className="form-panel bg-white/3 border border-white/10 p-8 flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="text-center md:text-left">
             <h2 className="text-3xl text-white uppercase tracking-widest">Recruit Wingmen</h2>
-            <p className="text-cyan-500/50 text-lg uppercase italic mt-1">Select additional units for the mission</p>
           </div>
           <div className="flex gap-4">
             {[0, 1, 2, 3, 4].map((num) => (
-              <button
-                key={num}
-                onClick={() => setTeamSize(num)}
-                className={`w-16 h-16 text-3xl font-bold border-2 transition-all cursor-pointer ${
-                  teamSize === num 
-                  ? 'bg-cyan-500 text-black border-cyan-400 ' 
-                  : 'border-white/20 text-white hover:border-cyan-500 bg-black/20'
-                }`}
-              >
+              <button key={num} onClick={() => setTeamSize(num)} className={`w-16 h-16 text-3xl font-bold border-2 transition-all cursor-pointer ${teamSize === num ? 'bg-cyan-500 text-black border-cyan-400 ' : 'border-white/20 text-white hover:border-cyan-500 bg-black/20'}`}>
                 0{num}
               </button>
             ))}
@@ -109,31 +148,36 @@ const AeroArcadeForm = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {Array.from({ length: teamSize }).map((_, i) => (
             <div key={i} className="wingman-panel bg-cyan-950/20 border border-cyan-500/20 p-6 backdrop-blur-lg">
-              <div className="flex justify-between items-center mb-4 border-b border-cyan-500/20 pb-2">
-                <span className="text-cyan-500 text-xl font-bold tracking-widest uppercase">Wingman_0{i + 1}</span>
-                <span className="text-white/20 text-xs font-mono">NODE_ACTIVE</span>
-              </div>
-              <div className="space-y-4">
-                <input type="text" placeholder="NAME" className="cyber-input text-lg py-2" />
-                <div className="grid grid-cols-2 gap-4">
-                  <input type="text" placeholder="ROLL" className="cyber-input text-lg py-2" />
-                  <input type="text" placeholder="DEPT" className="cyber-input text-lg py-2" />
-                </div>
+              <input type="text" placeholder="NAME" className="cyber-input text-lg py-2" />
+              <div className="grid grid-cols-2 gap-4 mt-4">
+                <input type="text" placeholder="ROLL" className="cyber-input text-lg py-2" />
+                <input type="text" placeholder="DEPT" className="cyber-input text-lg py-2" />
               </div>
             </div>
           ))}
         </div>
-        <div className="form-panel mt-4 bg-linear-to-r from-purple-900/40 via-black/60 to-purple-900/40 border-y border-purple-500/30 p-10 flex flex-col md:flex-row justify-between items-center gap-8">
-          <div className="text-center md:text-left">
-            <p className="text-white/40 text-xl tracking-[0.4em] uppercase">Mission Requisition Fee</p>
-            <div className="text-8xl text-white font-bold tracking-tighter leading-none mt-2">
-              ₹<span className="text-green-400 drop-shadow-[0_0_15px_#4ade80]">{totalPrice}</span>
+
+        <div className="form-panel bg-black/60 border border-purple-500/30 p-8 backdrop-blur-xl">
+          <div className="flex flex-col md:flex-row gap-10 items-center">
+            <div className="shrink-0 bg-white p-4">
+              <img src={upiImage} alt="QR" className="w-40 h-40" />
+            </div>
+            <div className="grow w-full space-y-6">
+              <h2 className="text-3xl text-purple-400 uppercase tracking-widest">Payment Authentication</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <input type="text" placeholder="TRANSACTION ID" className="cyber-input" value={txnId} onChange={(e) => setTxnId(e.target.value)} />
+                <input type="text" value={currentTime} readOnly className="cyber-input opacity-50" />
+              </div>
             </div>
           </div>
+        </div>
 
-          <button className="relative group px-20 py-8 bg-purple-600 text-black text-4xl font-bold uppercase tracking-[0.2em] transition-all hover:bg-green-400 hover:scale-105 active:scale-95 cursor-pointer shadow-[0_0_40px_rgba(147,51,234,0.4)] overflow-hidden">
-             <span className="relative z-10">Confirm & Pay</span>
-             <div className="absolute inset-0 bg-white/20 -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+        <div className="form-panel mt-4 p-10 flex justify-center">
+          <button 
+            onClick={() => setSubmitted(true)}
+            className="px-24 py-8 bg-purple-600 text-black text-4xl font-bold uppercase tracking-[0.2em] hover:bg-green-400 hover:scale-105 active:scale-95 transition-all cursor-pointer"
+          >
+             Finalize Mission
           </button>
         </div>
       </div>
@@ -142,34 +186,21 @@ const AeroArcadeForm = () => {
         .cyber-input {
           background: rgba(0, 0, 0, 0.4);
           border-bottom: 2px solid rgba(255, 255, 255, 0.1);
-          border-right: 1px solid rgba(255, 255, 255, 0.05);
           padding: 12px 16px;
           color: white;
           width: 100%;
           font-size: 1.5rem;
           font-family: 'VT323', monospace;
-          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          transition: all 0.3s;
         }
         .cyber-input:focus {
           border-bottom-color: #22d3ee;
-          background: rgba(34, 211, 238, 0.05);
           outline: none;
-          padding-left: 24px;
         }
-        .label-text {
-          color: rgba(34, 211, 238, 0.8);
-          text-transform: uppercase;
-          letter-spacing: 0.15em;
-          font-size: 1.25rem;
-          margin-bottom: 0.5rem;
-          display: block;
-        }
-        .drop-shadow-glow {
-          filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
-        }
+        .label-text { color: #22d3ee; text-transform: uppercase; font-size: 1.25rem; }
       `}} />
     </div>
   );
 };
 
-export default AeroArcadeForm;
+export default VtolcompRegister;

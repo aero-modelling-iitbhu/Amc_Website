@@ -4,7 +4,7 @@ import bgVideo from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/Co
 const nameOfComp= "winter_camp" //edit name here
 
 
-const AeroArcadeRegister = () => {
+const WintercampRegister = () => {
   return (
     <div className="relative h-screen w-full overflow-hidden bg-black font-['VT323']">
 
@@ -58,4 +58,4 @@ const AeroArcadeRegister = () => {
   );
 };
 
-export default AeroArcadeRegister;
+export default WintercampRegister;

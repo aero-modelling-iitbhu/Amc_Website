@@ -1,7 +1,7 @@
 import React from 'react';
 import bgVideo from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/Competetions/Register/Registervideo.mp4';
 
-const AeroArcadeComingSoon = () => {
+const SummercampRegister = () => {
   return (
     <div className="relative h-screen w-full overflow-hidden bg-black font-['VT323']">
       <video
@@ -35,4 +35,4 @@ const AeroArcadeComingSoon = () => {
   );
 };
 
-export default AeroArcadeComingSoon;
+export default SummercampRegister;
