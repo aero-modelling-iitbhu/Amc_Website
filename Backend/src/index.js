@@ -1,11 +1,13 @@
 import { prisma } from "./lib/prisma";
 import express from "express";
+import cors from "cors";
 const app = express();
 app.use(express.json());
+app.use(cors());
 app.post("/teamRegister", async (req, res) => {
     try {
         const { leader, leaderemail, leaderRollNum, leaderDept, num, teamName, mate1Name, mate1RollNum, mate1Dept, mate2Name, mate2RollNum, mate2Dept, mate3Name, mate3RollNum, mate3Dept, mate4Name, mate4RollNum, mate4Dept, TransactionId, } = req.body;
-        if (!TransactionId || !leader || !teamName || !leaderRollNum || !leaderemail || !leaderDept) {
+        if (!TransactionId || !leader || !teamName || !leaderRollNum || !leaderemail || !leaderDept || !num) {
             return res.status(400).json({ error: "Missing required fields" });
         }
         const mates = [

@@ -2,10 +2,12 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import logoTop from '../assets/Logo Top.png'
 import gsap from 'gsap'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate,useLocation } from 'react-router-dom'
 
 const Navbar = () => {
     const navigate = useNavigate()
+    const loaction =useLocation();
+    const currURL=loaction.pathname;
     return (
         <nav className="fixed top-0 left-0 w-full h-[7vw] flex items-center justify-between px-8 z-50">
             <div className="h-[7vw] w-[7vw] shrink-0 cursor-pointer group" onClick={() => navigate('/')}>
@@ -16,13 +18,13 @@ const Navbar = () => {
             </div>
             <div className='flex items-center justify-center space-x-12 w-full ml-5'>
                 <div>
-                    <Link className='vt323-regular text-4xl text-white uppercase hover:text-purple-500 transition-colors' to='/competitions'>Competitions</Link>
+                    <Link className={`vt323-regular text-4xl  uppercase ${currURL==='/competitions'? 'text-purple-500':'text-white  hover:text-purple-500'}  transition-colors`} to='/competitions'>Competitions</Link>
                 </div>
                 <div>
-                    <Link className='vt323-regular text-4xl text-white uppercase hover:text-purple-500 transition-colors' to='/projects'>Projects</Link>
+                    <Link className={`vt323-regular text-4xl uppercase ${currURL==='/projects'? 'text-purple-500':'text-white hover:text-purple-500'}  transition-colors`}  to='/projects'>Projects</Link>
                 </div>
                 <div>
-                    <Link className='vt323-regular text-4xl text-white uppercase hover:text-purple-500 transition-colors' to='/resources'>Resources</Link>
+                    <Link className={`vt323-regular text-4xl uppercase ${currURL==='/resources'? 'text-purple-500':'text-white  hover:text-purple-500'}  transition-colors`} to='/resources'>Resources</Link>
                 </div>
             </div>
             <svg className="h-[2.5vw]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"></svg>
@@ -42,7 +44,7 @@ const Navbar = () => {
                     </div>
                 </a>
                 <a>
-                    <div className=' w-full h-15 hover:cursor-pointer group' >
+                    <div className=' w-full h-15 hover:cursor-pointer group '  >
                         <div className='flex align-middle justify-center fill-white group-hover:fill-purple-500 transition-all'>
                             <svg className="h-[2.3vw]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.25361 18.4944L7.97834 18.917C9.18909 19.623 10.5651 20 12.001 20C16.4193 20 20.001 16.4183 20.001 12C20.001 7.58172 16.4193 4 12.001 4C7.5827 4 4.00098 7.58172 4.00098 12C4.00098 13.4363 4.37821 14.8128 5.08466 16.0238L5.50704 16.7478L4.85355 19.1494L7.25361 18.4944ZM2.00516 22L3.35712 17.0315C2.49494 15.5536 2.00098 13.8345 2.00098 12C2.00098 6.47715 6.47813 2 12.001 2C17.5238 2 22.001 6.47715 22.001 12C22.001 17.5228 17.5238 22 12.001 22C10.1671 22 8.44851 21.5064 6.97086 20.6447L2.00516 22ZM8.39232 7.30833C8.5262 7.29892 8.66053 7.29748 8.79459 7.30402C8.84875 7.30758 8.90265 7.31384 8.95659 7.32007C9.11585 7.33846 9.29098 7.43545 9.34986 7.56894C9.64818 8.24536 9.93764 8.92565 10.2182 9.60963C10.2801 9.76062 10.2428 9.95633 10.125 10.1457C10.0652 10.2428 9.97128 10.379 9.86248 10.5183C9.74939 10.663 9.50599 10.9291 9.50599 10.9291C9.50599 10.9291 9.40738 11.0473 9.44455 11.1944C9.45903 11.25 9.50521 11.331 9.54708 11.3991C9.57027 11.4368 9.5918 11.4705 9.60577 11.4938C9.86169 11.9211 10.2057 12.3543 10.6259 12.7616C10.7463 12.8783 10.8631 12.9974 10.9887 13.108C11.457 13.5209 11.9868 13.8583 12.559 14.1082L12.5641 14.1105C12.6486 14.1469 12.692 14.1668 12.8157 14.2193C12.8781 14.2457 12.9419 14.2685 13.0074 14.2858C13.0311 14.292 13.0554 14.2955 13.0798 14.2972C13.2415 14.3069 13.335 14.2032 13.3749 14.1555C14.0984 13.279 14.1646 13.2218 14.1696 13.2222V13.2238C14.2647 13.1236 14.4142 13.0888 14.5476 13.097C14.6085 13.1007 14.6691 13.1124 14.7245 13.1377C15.2563 13.3803 16.1258 13.7587 16.1258 13.7587L16.7073 14.0201C16.8047 14.0671 16.8936 14.1778 16.8979 14.2854C16.9005 14.3523 16.9077 14.4603 16.8838 14.6579C16.8525 14.9166 16.7738 15.2281 16.6956 15.3913C16.6406 15.5058 16.5694 15.6074 16.4866 15.6934C16.3743 15.81 16.2909 15.8808 16.1559 15.9814C16.0737 16.0426 16.0311 16.0714 16.0311 16.0714C15.8922 16.159 15.8139 16.2028 15.6484 16.2909C15.391 16.428 15.1066 16.5068 14.8153 16.5218C14.6296 16.5313 14.4444 16.5447 14.2589 16.5347C14.2507 16.5342 13.6907 16.4482 13.6907 16.4482C12.2688 16.0742 10.9538 15.3736 9.85034 14.402C9.62473 14.2034 9.4155 13.9885 9.20194 13.7759C8.31288 12.8908 7.63982 11.9364 7.23169 11.0336C7.03043 10.5884 6.90299 10.1116 6.90098 9.62098C6.89729 9.01405 7.09599 8.4232 7.46569 7.94186C7.53857 7.84697 7.60774 7.74855 7.72709 7.63586C7.85348 7.51651 7.93392 7.45244 8.02057 7.40811C8.13607 7.34902 8.26293 7.31742 8.39232 7.30833Z"></path></svg>
                         </div>
@@ -67,42 +69,42 @@ const Navbar = () => {
 
             <div className='h-[30vw] w-[5vw] top-40 backdrop-blur-md left-2 absolute rounded-lg  pt-4 p-1' >
                 <div className=' w-full h-15 hover:cursor-pointer group  mt-5' onClick={() => { navigate('/') }}>
-                    <div className='flex align-middle justify-center fill-white group-hover:fill-purple-500 transition-all'>
+                    <div className={`flex align-middle justify-center  ${currURL=='/'? 'fill-purple-500': 'fill-white group-hover:fill-purple-500 transition-all'  } `}>
                         <svg className="h-[2.3vw]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 21H5C4.44772 21 4 20.5523 4 20V11L1 11L11.3273 1.6115C11.7087 1.26475 12.2913 1.26475 12.6727 1.6115L23 11L20 11V20C20 20.5523 19.5523 21 19 21ZM6 19H18V9.15745L12 3.7029L6 9.15745V19Z"></path></svg>
                     </div>
-                    <div className='text-white group-hover:text-purple-400 vt323-regular flex items-center justify-center transition-colors duration-300'>
+                    <div className={`vt323-regular flex items-center justify-center transition-colors duration-300 ${currURL==='/'? 'text-purple-500': 'text-white group-hover:text-purple-500'}`}>
                         Home
                     </div>
                 </div>
                 <div className=' w-full h-15 hover:cursor-pointer group mt-4' onClick={() => { navigate('/helm') }}>
-                    <div className='flex align-middle justify-center fill-white group-hover:fill-purple-500 transition-all'>
+                    <div className={`flex align-middle justify-center  ${currURL==='/helm'? 'fill-purple-500': 'fill-white group-hover:fill-purple-500 transition-all'  } `}>
                         <svg className="h-[2.3vw]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5.23379 7.72989C6.65303 5.48625 9.15342 4 12.0002 4C14.847 4 17.3474 5.48625 18.7667 7.72989L20.4569 6.66071C18.6865 3.86199 15.5612 2 12.0002 2C8.43928 2 5.31393 3.86199 3.54356 6.66071L5.23379 7.72989ZM12.0002 20C9.15342 20 6.65303 18.5138 5.23379 16.2701L3.54356 17.3393C5.31393 20.138 8.43928 22 12.0002 22C15.5612 22 18.6865 20.138 20.4569 17.3393L18.7667 16.2701C17.3474 18.5138 14.847 20 12.0002 20ZM12 12C13.6569 12 15 10.6569 15 9C15 7.34315 13.6569 6 12 6C10.3431 6 9 7.34315 9 9C9 10.6569 10.3431 12 12 12ZM12 13C14.2091 13 16 14.7909 16 17H8C8 14.7909 9.79086 13 12 13ZM6 12C6 13.6569 4.65685 15 3 15C1.34315 15 0 13.6569 0 12C0 10.3431 1.34315 9 3 9C4.65685 9 6 10.3431 6 12ZM21 15C22.6569 15 24 13.6569 24 12C24 10.3431 22.6569 9 21 9C19.3431 9 18 10.3431 18 12C18 13.6569 19.3431 15 21 15Z"></path></svg>
                     </div>
-                    <div className='text-white group-hover:text-purple-400 vt323-regular flex items-center justify-center transition-colors duration-300'>
+                    <div className={`vt323-regular flex items-center justify-center transition-colors duration-300 ${currURL==='/helm'? 'text-purple-500': 'text-white group-hover:text-purple-500'}`}>
                         Members
                     </div>
                 </div>
                 <div className=' w-full h-15 hover:cursor-pointer group  mt-4'onClick={() => { navigate('/alumni') }} >
-                    <div className='flex align-middle justify-center fill-white group-hover:fill-purple-500 transition-all'>
+                    <div className={`flex align-middle justify-center  ${currURL==='/alumni'? 'fill-purple-500': 'fill-white group-hover:fill-purple-500 transition-all'  } `}>
                         <svg className="h-[2.3vw]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 22C4 17.5817 7.58172 14 12 14C16.4183 14 20 17.5817 20 22H4ZM12 13C8.685 13 6 10.315 6 7C6 3.685 8.685 1 12 1C15.315 1 18 3.685 18 7C18 10.315 15.315 13 12 13Z"></path></svg>
                     </div>
-                    <div className='text-white group-hover:text-purple-400 vt323-regular flex items-center justify-center transition-colors duration-300'>
+                    <div className={`vt323-regular flex items-center justify-center transition-colors duration-300 ${currURL==='/alumni'? 'text-purple-500': 'text-white group-hover:text-purple-500'}`}>
                         Alumni
                     </div>
                 </div>
                 <div className=' w-full h-15 hover:cursor-pointer group mt-4 'onClick={() => { navigate('/victory') }}>
-                    <div className='flex align-middle justify-center fill-white group-hover:fill-purple-500 transition-all'>
+                    <div className={`flex align-middle justify-center  ${currURL==='/victory'? 'fill-purple-500': 'fill-white group-hover:fill-purple-500 transition-all'  } `}>
                         <svg className="h-[2.3vw]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.0049 16.9409V19.0027H18.0049V21.0027H6.00488V19.0027H11.0049V16.9409C7.05857 16.4488 4.00488 13.0824 4.00488 9.00275V3.00275H20.0049V9.00275C20.0049 13.0824 16.9512 16.4488 13.0049 16.9409ZM1.00488 5.00275H3.00488V9.00275H1.00488V5.00275ZM21.0049 5.00275H23.0049V9.00275H21.0049V5.00275Z"></path></svg>
                     </div>
-                    <div className='text-white group-hover:text-purple-400 vt323-regular flex items-center justify-center transition-colors duration-300'>
+                    <div className={`vt323-regular flex items-center justify-center transition-colors duration-300 ${currURL==='/victory'? 'text-purple-500': 'text-white group-hover:text-purple-500'}`}>
                         Victory
                     </div>
                 </div>
-                <div className=' w-full h-15 hover:cursor-pointer group mt-4 ' >
-                    <div className='flex align-middle justify-center fill-white group-hover:fill-purple-500 transition-all'>
+                <div className=' w-full h-15 hover:cursor-pointer group mt-4 ' onClick={()=>{navigate('/authors')}}>
+                    <div className={`flex align-middle justify-center  ${currURL==='/authors'? 'fill-purple-500': 'fill-white group-hover:fill-purple-500 transition-all'  } `}>
                         <svg className="h-[2.3vw]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 10C14.2091 10 16 8.20914 16 6 16 3.79086 14.2091 2 12 2 9.79086 2 8 3.79086 8 6 8 8.20914 9.79086 10 12 10ZM5.5 13C6.88071 13 8 11.8807 8 10.5 8 9.11929 6.88071 8 5.5 8 4.11929 8 3 9.11929 3 10.5 3 11.8807 4.11929 13 5.5 13ZM21 10.5C21 11.8807 19.8807 13 18.5 13 17.1193 13 16 11.8807 16 10.5 16 9.11929 17.1193 8 18.5 8 19.8807 8 21 9.11929 21 10.5ZM12 11C14.7614 11 17 13.2386 17 16V22H7V16C7 13.2386 9.23858 11 12 11ZM5 15.9999C5 15.307 5.10067 14.6376 5.28818 14.0056L5.11864 14.0204C3.36503 14.2104 2 15.6958 2 17.4999V21.9999H5V15.9999ZM22 21.9999V17.4999C22 15.6378 20.5459 14.1153 18.7118 14.0056 18.8993 14.6376 19 15.307 19 15.9999V21.9999H22Z"></path></svg>
                     </div>
-                    <div className='text-white group-hover:text-purple-400 vt323-regular flex items-center justify-center transition-colors duration-300'>
+                    <div className={`vt323-regular flex items-center justify-center transition-colors duration-300 ${currURL==='/authors'? 'text-purple-500': 'text-white group-hover:text-purple-500'}`}>
                         Authors
                     </div>
                 </div>

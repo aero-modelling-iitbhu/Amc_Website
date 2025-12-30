@@ -19,7 +19,7 @@ model Team{
   email String @unique
   rollNum Int 
   depart String @db.VarChar(50)
-  num Int @unique
+  num String @unique @db.VarChar(15)
 
   mate1Name String?
   mate1rollNum Int?
