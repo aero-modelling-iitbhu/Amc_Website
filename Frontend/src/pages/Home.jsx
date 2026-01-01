@@ -49,13 +49,8 @@ const NeonHelipad = () => {
     })
     const sl = gsap.timeline()
     sl.to(sloganref.current, {
-      x: 430,
-      duration: 5,
-      delay: 1
-    })
-    sl.to(sloganref.current, {
-      y: -250,
-      duration: 3
+      y: 350,
+      duration: 5
     })
     sl.to(sloganref.current, {
       y: '-=15',
@@ -89,7 +84,7 @@ const NeonHelipad = () => {
       </div>
 
       <div>
-        <img src={slogan} ref={sloganref} className="top-150 left-0 h-[40vw] w-[40vw] absolute"></img>
+        <img src={slogan} ref={sloganref} className="top-0 left-[30vw] h-[40vw] w-[40vw] absolute"></img>
       </div>
       <div>
         <img src={logo} className="h-[12vw] w-[30vw] top-60 left-130 absolute" alt="Main Logo"></img>
