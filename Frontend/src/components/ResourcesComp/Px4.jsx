@@ -110,17 +110,17 @@ pip3 install --user pyserial jinja2 numpy pandas pyyaml packaging
 
 export default function PX4Installation() {
   return (
-    <div className="min-h-screen bg-[#020617] text-slate-300 selection:bg-cyan-500/30">
-      <header className="relative overflow-hidden border-b border-slate-800 bg-slate-950 px-8 py-24 lg:px-16">
+    <div className="min-h-screen bg-[#020617] text-slate-300 selection:bg-cyan-500/30 overflow-x-hidden">
+      <header className="relative overflow-hidden border-b border-slate-800 bg-slate-950 px-4 py-16 md:px-8 md:py-24 lg:px-16">
         <div className="absolute top-0 right-0 -mr-20 -mt-20 h-96 w-96 bg-cyan-500/5 blur-[120px]" />
         <div className="max-w-5xl mx-auto relative z-10">
           <span className="inline-block rounded-full bg-cyan-500/10 px-3 py-1 text-[11px] font-bold text-cyan-400 ring-1 ring-inset ring-cyan-500/20 mb-6 uppercase tracking-wider">
             Firmware & SITL Development
           </span>
-          <h1 className="text-5xl lg:text-7xl font-black tracking-tighter text-white mb-8 leading-tight">
+          <h1 className="text-4xl md:text-5xl lg:text-7xl font-black tracking-tighter text-white mb-8 leading-tight">
             PX4 <span className="text-cyan-400">Autopilot</span> Installation
           </h1>
-          <p className="text-xl text-slate-400 max-w-2xl leading-relaxed font-medium mb-8">
+          <p className="text-lg md:text-xl text-slate-400 max-w-2xl leading-relaxed font-medium mb-8">
             Comprehensive guide to building PX4 from source for simulation and 
             real hardware targets including Pixhawk and NuttX boards.
           </p>
@@ -135,23 +135,33 @@ export default function PX4Installation() {
           </a>
         </div>
       </header>
-      <main className="mx-auto max-w-5xl px-8 py-20 lg:py-28">
+      <main className="mx-auto max-w-5xl px-4 py-12 md:px-8 lg:py-28">
         <article className="
           prose prose-invert prose-slate max-w-none
-          prose-h2:text-white prose-h2:text-3xl prose-h2:font-extrabold prose-h2:mt-24 prose-h2:mb-8 prose-h2:border-b prose-h2:border-slate-800 prose-h2:pb-4
-          prose-h3:text-cyan-400 prose-h3:text-xl prose-h3:font-bold prose-h3:mt-12
-          prose-p:text-slate-400 prose-p:text-[18px] prose-p:leading-8
+          prose-headings:break-words
+          prose-h2:text-white prose-h2:text-2xl md:prose-h2:text-3xl prose-h2:font-extrabold prose-h2:mt-16 md:prose-h2:mt-24 prose-h2:mb-8 prose-h2:border-b prose-h2:border-slate-800 prose-h2:pb-4
+          prose-h3:text-cyan-400 prose-h3:text-lg md:prose-h3:text-xl prose-h3:font-bold prose-h3:mt-12
+          prose-p:text-slate-400 prose-p:text-base md:prose-p:text-[18px] prose-p:leading-8
           prose-strong:text-cyan-100 prose-strong:font-bold
-          prose-blockquote:border-l-cyan-500 prose-blockquote:bg-slate-900/50 prose-blockquote:py-2 prose-blockquote:px-8 prose-blockquote:rounded-r-xl
-          prose-hr:border-slate-800 prose-hr:my-20
+          prose-blockquote:border-l-cyan-500 prose-blockquote:bg-slate-900/50 prose-blockquote:py-2 prose-blockquote:px-4 md:prose-blockquote:px-8 prose-blockquote:rounded-r-xl
+          prose-hr:border-slate-800 prose-hr:my-12 md:prose-hr:my-20
           prose-table:border prose-table:border-slate-800
           prose-th:bg-slate-900 prose-th:px-4 prose-th:py-3 prose-th:text-cyan-300
           prose-td:px-4 prose-td:py-3 prose-td:border-t prose-td:border-slate-800
+          prose-pre:max-w-[85vw] md:prose-pre:max-w-full
         ">
           <ReactMarkdown
             remarkPlugins={[remarkGfm]}
             rehypePlugins={[rehypeRaw]}
             components={{
+              // Responsive table wrapper
+              table: ({ children }) => (
+                <div className="overflow-x-auto my-8 border border-slate-800 rounded-lg">
+                    <table className="min-w-full text-left text-sm">
+                        {children}
+                    </table>
+                </div>
+              ),
               code({ inline, className, children }) {
                 const match = /language-(\w+)/.exec(className || '')
                 if (!inline && match) {
@@ -168,25 +178,27 @@ export default function PX4Installation() {
                           PX4 Build Console — {match[1]}
                         </span>
                       </div>
-                      <SyntaxHighlighter
-                        style={vscDarkPlus}
-                        language={match[1]}
-                        PreTag="div"
-                        customStyle={{
-                          margin: 0,
-                          padding: '1.75rem',
-                          background: 'transparent',
-                          fontSize: '14px',
-                          lineHeight: '1.8',
-                        }}
-                      >
-                        {String(children).replace(/\n$/, '')}
-                      </SyntaxHighlighter>
+                      <div className="overflow-x-auto">
+                        <SyntaxHighlighter
+                          style={vscDarkPlus}
+                          language={match[1]}
+                          PreTag="div"
+                          customStyle={{
+                            margin: 0,
+                            padding: '1.75rem',
+                            background: 'transparent',
+                            fontSize: '14px',
+                            lineHeight: '1.8',
+                          }}
+                        >
+                          {String(children).replace(/\n$/, '')}
+                        </SyntaxHighlighter>
+                      </div>
                     </div>
                   )
                 }
                 return (
-                  <code className="bg-slate-800 text-cyan-300 px-1.5 py-0.5 rounded font-mono text-sm">
+                  <code className="bg-slate-800 text-cyan-300 px-1.5 py-0.5 rounded font-mono text-sm break-all">
                     {children}
                   </code>
                 )

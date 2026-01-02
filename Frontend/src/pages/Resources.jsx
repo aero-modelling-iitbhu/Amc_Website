@@ -1,7 +1,5 @@
-import { useGSAP } from '@gsap/react'
-import React, { useRef } from 'react'
-import { gsap } from 'gsap'
-import {useNavigate} from 'react-router-dom'
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import rosimage from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/ResourcesImages/Ros/image.png'
 import gazeboimg from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/ResourcesImages/Ros/gazebo.png'
 import px4img from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/ResourcesImages/Px4/Px4img.png'
@@ -10,104 +8,106 @@ import cube from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/Resou
 import motor from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/ResourcesImages/Components/Motor.png'
 import esc from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/ResourcesImages/Components/Flight.png'
 
-const Resources = () => {
-    const navigate=useNavigate();
+const ResourceItem = ({ title, route, images, activeId, setActiveId, id, scrollText }) => {
+    const navigate = useNavigate();
+    const isActive = activeId === id;
+
+    const handleClick = () => {
+        if (window.innerWidth < 1024) {
+            if (isActive) {
+                navigate(route);
+            } else {
+                setActiveId(id);
+            }
+        } else {
+            navigate(route);
+        }
+    };
 
     return (
-        <div className='bg-black absolute h-screen w-full'>
-            <div className='mt-40 vt323-regular'>
-                <div className='border-y origin-top group border-white relative overflow-hidden h-[10vw]' onClick={()=>{navigate('/resources/ros')}}>
-                    <h1 className='text-[8vw] text-center leading-none uppercase text-white'>Ros2</h1>
-
-                    <div className='absolute opacity-0 group-hover:opacity-100 flex flex-nowrap w-full left-0 top-0 h-full items-center pointer-events-none'>
-
-                        <div className='flex min-w-full movex items-center justify-around bg-linear-to-b to-purple-900 from-pink-900 shrink-0 gap-4'>
-                            <h2 className='whitespace-nowrap text-black text-[8vw] uppercase shrink-0'>perceive all</h2>
-                            <img className='h-[7vw] w-[15vw] object-cover shrink-0 rounded-full' src={rosimage} alt="ros" />
-
-                            <h2 className='whitespace-nowrap text-black text-[8vw] uppercase shrink-0'>perceive all</h2>
-                            <img className='h-[7vw] w-[15vw] object-cover shrink-0 rounded-full' src={rosimage} alt="gazebo" />
-                        </div>
-                        <div className='flex min-w-full movex items-center justify-around bg-linear-to-b to-purple-900 from-pink-900 shrink-0 gap-4'>
-                            <h2 className='whitespace-nowrap text-black text-[8vw] uppercase shrink-0'>perceive all</h2>
-                            <img className='h-[7vw] w-[15vw] object-cover shrink-0 rounded-full' src={rosimage} alt="ros" />
-
-                            <h2 className='whitespace-nowrap text-black text-[8vw] uppercase shrink-0'>perceive all</h2>
-                            <img className='h-[7vw] w-[15vw] object-cover shrink-0 rounded-full' src={rosimage} alt="gazebo" />
-                        </div>
-
+        <div 
+            className='border-y origin-top group border-white relative overflow-hidden h-32 md:h-40 lg:h-[10vw] cursor-pointer' 
+            onClick={handleClick}
+            onMouseEnter={() => setActiveId(id)}
+            onMouseLeave={() => setActiveId(null)}
+        >
+            <div className='flex items-center justify-center h-full w-full'>
+                <h1 className='text-5xl md:text-7xl lg:text-[8vw] text-center leading-none uppercase text-white transition-opacity duration-300'>
+                    {title}
+                </h1>
+            </div>
+            <div className={`absolute left-0 top-0 h-full w-full flex items-center bg-linear-to-b to-purple-900 from-pink-900 transition-opacity duration-300 pointer-events-none
+                ${isActive ? 'opacity-100' : 'opacity-0 lg:group-hover:opacity-100'}
+            `}>
+                <div className='flex flex-nowrap w-full items-center'>
+                    <div className='flex min-w-full movex items-center justify-around shrink-0 gap-10 md:gap-20'>
+                        <h2 className='whitespace-nowrap text-black text-4xl md:text-6xl lg:text-[8vw] uppercase shrink-0 font-normal opacity-90'>{scrollText}</h2>
+                        <img className='h-16 w-24 md:h-24 md:w-40 lg:h-[7vw] lg:w-[15vw] object-cover shrink-0 rounded-full border-2 border-black' src={images[0]} alt="img1" />
+                        <h2 className='whitespace-nowrap text-black text-4xl md:text-6xl lg:text-[8vw] uppercase shrink-0 font-normal opacity-90'>{scrollText}</h2>
+                        <img className='h-16 w-24 md:h-24 md:w-40 lg:h-[7vw] lg:w-[15vw] object-cover shrink-0 rounded-full border-2 border-black' src={images[1]} alt="img2" />
+                    </div>
+                    <div className='flex min-w-full movex items-center justify-around shrink-0 gap-10 md:gap-20'>
+                         <h2 className='whitespace-nowrap text-black text-4xl md:text-6xl lg:text-[8vw] uppercase shrink-0 font-normal opacity-90'>{scrollText}</h2>
+                        <img className='h-16 w-24 md:h-24 md:w-40 lg:h-[7vw] lg:w-[15vw] object-cover shrink-0 rounded-full border-2 border-black' src={images[0]} alt="img1" />
+                        <h2 className='whitespace-nowrap text-black text-4xl md:text-6xl lg:text-[8vw] uppercase shrink-0 font-normal opacity-90'>{scrollText}</h2>
+                        <img className='h-16 w-24 md:h-24 md:w-40 lg:h-[7vw] lg:w-[15vw] object-cover shrink-0 rounded-full border-2 border-black' src={images[1]} alt="img2" />
                     </div>
                 </div>
 
-                <div className='border-y origin-top group border-white relative overflow-hidden h-[10vw]' onClick={()=>{navigate('/resources/px4')}}>
-                    <h1 className='text-[8vw] text-center leading-none uppercase text-white'>PX4</h1>
-
-                    <div className='absolute opacity-0 group-hover:opacity-100 flex flex-nowrap w-full left-0 top-0 h-full items-center pointer-events-none'>
-
-                        <div className='flex min-w-full movex items-center justify-around bg-linear-to-b to-purple-900 from-pink-900 shrink-0 gap-4'>
-                            <h2 className='whitespace-nowrap text-black text-[8vw] uppercase shrink-0'>Observe all</h2>
-                            <img className='h-[7vw] w-[15vw] object-cover shrink-0 rounded-full' src={px4img} alt="ros" />
-
-                            <h2 className='whitespace-nowrap text-black text-[8vw] uppercase shrink-0'>observe all</h2>
-                            <img className='h-[7vw] w-[15vw] object-cover shrink-0 rounded-full' src={drone} alt="gazebo" />
-                        </div>
-                        <div className='flex min-w-full movex items-center justify-around bg-linear-to-b to-purple-900 from-pink-900 shrink-0 gap-4'>
-                            <h2 className='whitespace-nowrap text-black text-[8vw] uppercase shrink-0'>observe all</h2>
-                            <img className='h-[7vw] w-[15vw] object-cover shrink-0 rounded-full' src={px4img} alt="ros" />
-
-                            <h2 className='whitespace-nowrap text-black text-[8vw] uppercase shrink-0'>observe all</h2>
-                            <img className='h-[7vw] w-[15vw] object-cover shrink-0 rounded-full' src={drone} alt="gazebo" />
-                        </div>
-
-                    </div>
+                <div className={`absolute bottom-2 w-full text-center text-white text-xs lg:hidden ${isActive ? 'block' : 'hidden'}`}>
+                    TAP AGAIN TO OPEN
                 </div>
+            </div>
+        </div>
+    )
+}
 
-                <div className='border-y origin-top group border-white relative overflow-hidden h-[10vw]' onClick={()=>{navigate('/resources/ardupilot')}}>
-                    <h1 className='text-[8vw] text-center leading-none uppercase text-white'>Ardupilot</h1>
+const Resources = () => {
+    const [activeId, setActiveId] = useState(null);
 
-                    <div className='absolute opacity-0 group-hover:opacity-100 flex flex-nowrap w-full left-0 top-0 h-full items-center pointer-events-none'>
+    return (
+        <div className='bg-black w-full min-h-screen overflow-x-hidden'>
+            <div className='pt-32 lg:pt-40 vt323-regular pb-20'>
+                
+                <ResourceItem 
+                    id="ros"
+                    title="Ros2" 
+                    route="/resources/ros" 
+                    images={[rosimage, gazeboimg]} 
+                    scrollText="perceive all"
+                    activeId={activeId}
+                    setActiveId={setActiveId}
+                />
 
-                        <div className='flex min-w-full movex items-center justify-around bg-linear-to-b to-purple-900 from-pink-900 shrink-0 gap-4'>
-                            <h2 className='whitespace-nowrap text-black text-[8vw] uppercase shrink-0'>perceive all</h2>
-                            <img className='h-[7vw] w-[15vw] object-cover shrink-0 rounded-full' src={cube} alt="ros" />
+                <ResourceItem 
+                    id="px4"
+                    title="PX4" 
+                    route="/resources/px4" 
+                    images={[px4img, drone]} 
+                    scrollText="Observe all"
+                    activeId={activeId}
+                    setActiveId={setActiveId}
+                />
 
-                            <h2 className='whitespace-nowrap text-black text-[8vw] uppercase shrink-0'>perceive all</h2>
-                            <img className='h-[7vw] w-[15vw] object-cover shrink-0 rounded-full' src={drone} alt="gazebo" />
-                        </div>
-                        <div className='flex min-w-full movex items-center justify-around bg-linear-to-b to-purple-900 from-pink-900 shrink-0 gap-4'>
-                            <h2 className='whitespace-nowrap text-black text-[8vw] uppercase shrink-0'>perceive all</h2>
-                            <img className='h-[7vw] w-[15vw] object-cover shrink-0 rounded-full' src={cube} alt="ros" />
+                <ResourceItem 
+                    id="ardu"
+                    title="Ardupilot" 
+                    route="/resources/ardupilot" 
+                    images={[cube, drone]} 
+                    scrollText="perceive all"
+                    activeId={activeId}
+                    setActiveId={setActiveId}
+                />
 
-                            <h2 className='whitespace-nowrap text-black text-[8vw] uppercase shrink-0'>perceive all</h2>
-                            <img className='h-[7vw] w-[15vw] object-cover shrink-0 rounded-full' src={drone} alt="gazebo" />
-                        </div>
-
-                    </div>
-                </div>
-
-                <div className='border-y origin-top group border-white relative overflow-hidden h-[10vw]'onClick={()=>{navigate('/resources/components')}}>
-                    <h1 className='text-[8vw] text-center leading-none uppercase text-white'>Components</h1>
-
-                    <div className='absolute opacity-0 group-hover:opacity-100 flex flex-nowrap w-full left-0 top-0 h-full items-center pointer-events-none'>
-
-                        <div className='flex min-w-full movex items-center justify-around bg-linear-to-b to-purple-900 from-pink-900 shrink-0 gap-4'>
-                            <h2 className='whitespace-nowrap text-black text-[8vw] uppercase shrink-0'>Observe all</h2>
-                            <img className='h-[7vw] w-[15vw] object-cover shrink-0 rounded-full' src={motor} alt="ros" />
-
-                            <h2 className='whitespace-nowrap text-black text-[8vw] uppercase shrink-0'>observe all</h2>
-                            <img className='h-[7vw] w-[15vw] object-cover shrink-0 rounded-full' src={esc} alt="gazebo" />
-                        </div>
-                        <div className='flex min-w-full movex items-center justify-around bg-linear-to-b to-purple-900 from-pink-900 shrink-0 gap-4'>
-                            <h2 className='whitespace-nowrap text-black text-[8vw] uppercase shrink-0'>observe all</h2>
-                            <img className='h-[7vw] w-[15vw] object-cover shrink-0 rounded-full' src={motor} alt="ros" />
-
-                            <h2 className='whitespace-nowrap text-black text-[8vw] uppercase shrink-0'>observe all</h2>
-                            <img className='h-[7vw] w-[15vw] object-cover shrink-0 rounded-full' src={esc} alt="gazebo" />
-                        </div>
-
-                    </div>
-                </div>
-
+                <ResourceItem 
+                    id="comp"
+                    title="Components" 
+                    route="/resources/components" 
+                    images={[motor, esc]} 
+                    scrollText="Observe all"
+                    activeId={activeId}
+                    setActiveId={setActiveId}
+                />
 
             </div>
         </div>

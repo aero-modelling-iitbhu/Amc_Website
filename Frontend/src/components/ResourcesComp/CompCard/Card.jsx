@@ -1,38 +1,35 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import mainCard from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/Competetions/cardCoponent/MainCard.svg'
 import bottomleft from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/Competetions/cardCoponent/BottomLeft.png'
 import bottomright from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/Competetions/cardCoponent/bottomright.png'
-import { Link } from 'react-router-dom'
+
 const Card = (props) => {
     return (
-            <div className='h-[20vw] w-[15vw] relative group'>
-                <div className='relative z-10 '>
-                    <img src={mainCard} className='w-full h-full' alt="main" />
-                </div>
-                <div className=' h-[2vw] w-[2wv] top-0 left-[4vw] absolute z-30 text-white vt323-regular text-3xl group-hover:top-8 transition-all duration-400'>
-                    {props.name}
-                </div>
-                <div className=' h-[14vw] w-[11.3vw] top-10 left-7 absolute z-10 group-hover:blur transition-all duration-400'>
-                    <img src={props.image} className='h-full w-full'></img>
-                </div>
-                <div className='text-[1.2vw] text-white vt323-regular h-[7vw] w-[10vw] absolute left-9 top-25 z-30 opacity-0 group-hover:opacity-100 transition-all duration-400'>
-                    {props.des}
-                </div>
-                <div className='h-full w-full absolute bottom-[0.5vw] group-hover:-left-[0.1vw] left-[1vw] z-0 transition-all duration-400'>
-                    <img src={bottomleft} className='h-full w-full' alt="decoration" />
-                </div>
-                <div className='h-full w-full absolute bottom-[0.5vw] -left-[1vw] z-0 group-hover:left-[0.1vw] transition-all duration-400'>
-                    <img src={bottomright} className='h-full w-full' alt="decoration" />
-                </div>
-                <div className='absolute bottom-11 left-3 h-[2vw] w-[13.2vw] z-40 flex justify-between align-middle'>
-                    <div>
-                        <Link className='text-white text-[1.4vw] vt323-regular p-1 border-2 group-hover:text-black group-hover:bg-white border-purple-500 ml-4 bg-black ' to={props.explore}>Explore </Link>
-                    </div>
-                    <div>
-                        <Link className='text-white text-[1.4vw] vt323-regular p-1 border-2 group-hover:text-black group-hover:bg-white border-purple-500 mr-3 bg-black ' to={props.register}>Register </Link>
-                    </div>
-                </div>
+        <div className='relative w-72 h-96 md:w-[20vw] md:h-[26vw] lg:w-[15vw] lg:h-[20vw] group transition-all duration-300 mx-auto'>
+            <div className='relative z-10 w-full h-full'>
+                <img src={mainCard} className='w-full h-full object-contain' alt="main" />
             </div>
+            <div className='absolute z-30 top-4 left-[25%] w-[50%] text-center text-white vt323-regular text-2xl md:text-3xl group-hover:top-8 transition-all duration-400'>
+                {props.name}
+            </div>
+            <div className='absolute z-10 top-[18%] left-[16%] w-[70%] h-[60%] group-hover:blur-sm transition-all duration-400'>
+                <img src={props.image} className='h-full w-full object-cover rounded-sm' alt={props.name}></img>
+            </div>
+            <div className='absolute z-30 top-[25%] left-[18%] w-[65%] h-[40%] text-white vt323-regular text-sm md:text-[1.2vw] leading-tight opacity-0 group-hover:opacity-100 transition-all duration-400 flex items-center justify-center text-center'>
+                {props.des}
+            </div>
+            <div className='absolute bottom-[2%] left-[5%] w-full h-full z-0 transition-all duration-400 group-hover:-left-[2%] pointer-events-none'>
+                <img src={bottomleft} className='h-full w-full object-contain' alt="decoration" />
+            </div>
+            <div className='absolute bottom-[2%] -left-[5%] w-full h-full z-0 transition-all duration-400 group-hover:left-[2%] pointer-events-none'>
+                <img src={bottomright} className='h-full w-full object-contain' alt="decoration" />
+            </div>
+            <div className='absolute bottom-[12%] left-[12%] w-[76%] z-40 flex justify-between items-center'>
+                <Link className='text-white text-lg md:text-[1.2vw] vt323-regular px-3 py-1 border-2 border-purple-500 bg-black hover:text-black hover:bg-white transition-colors' to={props.explore}>Explore </Link>
+                <Link className='text-white text-lg md:text-[1.2vw] vt323-regular px-3 py-1 border-2 border-purple-500 bg-black hover:text-black hover:bg-white transition-colors' to={props.register}>Register </Link>
+            </div>
+        </div>
     )
 }
 

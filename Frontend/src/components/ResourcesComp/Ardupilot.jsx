@@ -117,18 +117,18 @@ sudo apt-get remove modemmanager -y
 
 export default function ArdupilotRos() {
   return (
-    <div className="min-h-screen bg-[#020617] text-slate-300 selection:bg-cyan-500/30">
+    <div className="min-h-screen bg-[#020617] text-slate-300 selection:bg-cyan-500/30 overflow-x-hidden">
     
-      <header className="relative overflow-hidden border-b border-slate-800 bg-slate-950 px-8 py-24 lg:px-16">
+      <header className="relative overflow-hidden border-b border-slate-800 bg-slate-950 px-4 py-16 md:px-8 md:py-24 lg:px-16">
         <div className="absolute top-0 right-0 -mr-20 -mt-20 h-96 w-96 bg-cyan-500/5 blur-[120px]" />
         <div className="max-w-4xl mx-auto relative z-10">
           <span className="inline-block rounded-full bg-cyan-500/10 px-3 py-1 text-[11px] font-bold text-cyan-400 ring-1 ring-inset ring-cyan-500/20 mb-6 uppercase tracking-wider">
             SITL & DDS Setup
           </span>
-          <h1 className="text-5xl lg:text-7xl font-black tracking-tighter text-white mb-8 leading-tight">
+          <h1 className="text-4xl md:text-5xl lg:text-7xl font-black tracking-tighter text-white mb-8 leading-tight">
             ArduPilot <span className="text-cyan-400">×</span> ROS 2 Humble
           </h1>
-          <p className="text-xl text-slate-400 max-w-2xl leading-relaxed font-medium mb-8">
+          <p className="text-lg md:text-xl text-slate-400 max-w-2xl leading-relaxed font-medium mb-8">
             Complete end-to-end guide for building ArduPilot from source and
             integrating it with ROS 2, Micro-XRCE-DDS, and Gazebo.
           </p>
@@ -143,16 +143,18 @@ export default function ArdupilotRos() {
           </a>
         </div>
       </header>
-      <main className="mx-auto max-w-5xl px-8 py-20 lg:py-28">
+      <main className="mx-auto max-w-5xl px-4 py-12 md:px-8 lg:py-28">
         <article className="
           prose prose-invert prose-slate max-w-none
-          prose-h1:hidden /* Hidden because we use a custom React Header */
-          prose-h2:text-white prose-h2:text-3xl prose-h2:font-extrabold prose-h2:mt-24 prose-h2:mb-8 prose-h2:border-b prose-h2:border-slate-800 prose-h2:pb-4
-          prose-h3:text-cyan-400 prose-h3:text-xl prose-h3:font-bold prose-h3:mt-12
-          prose-p:text-slate-400 prose-p:text-[18px] prose-p:leading-8
+          prose-headings:break-words
+          prose-h1:hidden
+          prose-h2:text-white prose-h2:text-2xl md:prose-h2:text-3xl prose-h2:font-extrabold prose-h2:mt-16 md:prose-h2:mt-24 prose-h2:mb-8 prose-h2:border-b prose-h2:border-slate-800 prose-h2:pb-4
+          prose-h3:text-cyan-400 prose-h3:text-lg md:prose-h3:text-xl prose-h3:font-bold prose-h3:mt-12
+          prose-p:text-slate-400 prose-p:text-base md:prose-p:text-[18px] prose-p:leading-8
           prose-strong:text-cyan-100 prose-strong:font-bold
-          prose-blockquote:border-l-cyan-500 prose-blockquote:bg-slate-900/50 prose-blockquote:py-2 prose-blockquote:px-8 prose-blockquote:rounded-r-xl prose-blockquote:italic
-          prose-hr:border-slate-800 prose-hr:my-20
+          prose-blockquote:border-l-cyan-500 prose-blockquote:bg-slate-900/50 prose-blockquote:py-2 prose-blockquote:px-4 md:prose-blockquote:px-8 prose-blockquote:rounded-r-xl prose-blockquote:italic
+          prose-hr:border-slate-800 prose-hr:my-12 md:prose-hr:my-20
+          prose-pre:max-w-[90vw] md:prose-pre:max-w-full
         ">
           <ReactMarkdown
             remarkPlugins={[remarkGfm]}
@@ -162,7 +164,7 @@ export default function ArdupilotRos() {
                 const match = /language-(\w+)/.exec(className || '')
                 if (!inline && match) {
                   return (
-                    <div className="my-10 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-2xl">
+                    <div className="my-10 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-2xl max-w-[85vw] md:max-w-full mx-auto">
                       <div className="flex items-center justify-between px-5 py-3 bg-slate-900 border-b border-slate-800">
                         <div className="flex gap-2">
                           <div className="w-3 h-3 rounded-full bg-slate-800 border border-slate-700" />
@@ -172,25 +174,27 @@ export default function ArdupilotRos() {
                           Terminal — {match[1]}
                         </span>
                       </div>
-                      <SyntaxHighlighter
-                        style={vscDarkPlus}
-                        language={match[1]}
-                        PreTag="div"
-                        customStyle={{
-                          margin: 0,
-                          padding: '1.75rem',
-                          background: 'transparent',
-                          fontSize: '14px',
-                          lineHeight: '1.8',
-                        }}
-                      >
-                        {String(children).replace(/\n$/, '')}
-                      </SyntaxHighlighter>
+                      <div className="overflow-x-auto">
+                        <SyntaxHighlighter
+                          style={vscDarkPlus}
+                          language={match[1]}
+                          PreTag="div"
+                          customStyle={{
+                            margin: 0,
+                            padding: '1.5rem',
+                            background: 'transparent',
+                            fontSize: '14px',
+                            lineHeight: '1.8',
+                          }}
+                        >
+                          {String(children).replace(/\n$/, '')}
+                        </SyntaxHighlighter>
+                      </div>
                     </div>
                   )
                 }
                 return (
-                  <code className="bg-slate-800 text-cyan-300 px-1.5 py-0.5 rounded font-mono text-sm">
+                  <code className="bg-slate-800 text-cyan-300 px-1.5 py-0.5 rounded font-mono text-sm break-all">
                     {children}
                   </code>
                 )
