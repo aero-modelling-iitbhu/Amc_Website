@@ -1,6 +1,7 @@
-import Aeroarcade from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/Competetions/Aerorcade.png'
-import Wintercamp from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/Competetions/WinterCAmp.png'
-import Summercamp from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/Competetions/SummerCamp.png'
+import Aeroarcade from '../Competetions/Aerorcade.png'
+import Wintercamp from '../Competetions/WinterCAmp.png'
+import Summercamp from '../Competetions/SummerCamp.png'
+import glider from '../Competetions/Glider.png'
 export const Competetion=[
     {
         name:"AeroArcade",
@@ -9,15 +10,15 @@ export const Competetion=[
         ExploreLink:"/explore/arcade",
         RegisterLink:"/register/AeroArcade"
     },{
-         name:"WinterCamp",
+         name:"AeroX",
         img:Wintercamp,
         description:"From Simulation to Sight: Redefining Drone Intelligence this Winter.",
         ExploreLink:"/explore/winter",
         RegisterLink:"/register/winter"
     },{
-         name:"AeroArcade",
-        img:Aeroarcade,
-        description:"AeroArcade: Push your drone to the limit through loops, locks, and landings.",
+         name:"SkyGlide",
+        img:glider,
+        description:"Unpowered glider design challenge for range and endurance",
         ExploreLink:"/explore/vtol",
         RegisterLink:"/register/vtol"
     },

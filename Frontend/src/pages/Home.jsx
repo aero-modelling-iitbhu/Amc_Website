@@ -1,9 +1,9 @@
 import React, { useRef } from "react";
-import logo from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/Logo.png';
-import bgimage from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/image6.png'
-import shadow from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/Shadow.png'
-import ufo from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/Ufo.png'
-import slogan from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/Slogan.png'
+import logo from '../assets/Logo.png';
+import bgimage from '../assets/image6.png'
+import shadow from '../assets/Shadow.png'
+import ufo from '../assets/Ufo.png'
+import slogan from '../assets/Slogan.png'
 import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { MotionPathPlugin } from "gsap/all";
@@ -64,30 +64,20 @@ const NeonHelipad = () => {
   return (
     <div className="relative w-full h-screen bg-[#05000a] overflow-hidden flex flex-col items-center justify-end">
       <img src={bgimage} className="h-full w-full top-0 left-0 absolute blur-[2px]" alt="Background"></img>
-      
       <div>
-        <img src={ufo} ref={ufoRef} className="top-100 h-[4vw] left-0 w-[4vw] absolute"></img>
+        <img src={ufo} ref={ufoRef} className="absolute left-0 top-70 w-12 h-auto md:top-[30vw] md:w-[4vw]"></img>
       </div>
-      <div className="absolute top-90 left-0 w-full h-full overflow-hidden pointer-events-none">
+      <div className="absolute top-60 md:top-90 left-0 w-full h-full overflow-hidden pointer-events-none">
         <div ref={shadowContainerRef} className="flex w-[200%] h-full">
-          <img
-            src={shadow}
-            className="w-1/2 h-full object-cover opacity-90"
-            alt="Shadow Fog 1"
-          />
-          <img
-            src={shadow}
-            className="w-1/2 h-full object-cover opacity-90"
-            alt="Shadow Fog 2"
-          />
+          <img src={shadow} className="w-1/2 h-full object-cover opacity-90"/>
+          <img src={shadow} className="w-1/2 h-full object-cover opacity-90"/>
         </div>
       </div>
-
       <div>
-        <img src={slogan} ref={sloganref} className="top-0 left-[30vw] h-[40vw] w-[40vw] absolute"></img>
+        <img src={slogan} ref={sloganref} className="absolute -top-10 w-[80vw] h-auto left-0 right-0 mx-auto md:top-0 md:mx-0 md:left-[30vw] md:right-auto md:h-[40vw] md:w-[40vw]"/>
       </div>
       <div>
-        <img src={logo} className="h-[12vw] w-[30vw] top-60 left-130 absolute" alt="Main Logo"></img>
+        <img src={logo} className="absolute top-60 left-1/2 -translate-x-1/2 h-24 w-auto sm:h-32 md:h-[12vw] md:w-[28vw]"/>
       </div>
 
     </div>

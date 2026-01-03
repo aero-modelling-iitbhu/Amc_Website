@@ -1,11 +1,11 @@
-import Secy from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/Helm_Images/2024-25/Images/SahilS.png'
-import JSecy1 from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/Helm_Images/2024-25/Images/ShaneshJs.png'
-import JSecy2 from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/Helm_Images/2024-25/Images/Shubham.png'
-import SCTM1 from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/Helm_Images/2024-25/Images/Arpan.jpeg'
-import TIC from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/Helm_Images/2024-25/Images/Siddharth.jpg'
-import SCTM2 from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/Helm_Images/2024-25/Images/Tridip.jpg'
-import DH from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/Helm_Images/2024-25/Images/Vishu.jpg'
-import ARC from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/Helm_Images/2024-25/Images/Chetan.png'
+import Secy from '../2024-25/Images/SahilS.png'
+import JSecy1 from '../2024-25/Images/ShaneshJs.png'
+import JSecy2 from '../2024-25/Images/Shubham.png'
+import SCTM1 from '../2024-25/Images/Arpan.png'
+import TIC from '../2024-25/Images/Siddhart.png'
+import SCTM2 from '../2024-25/Images/Tridip.png'
+import DH from '../2024-25/Images/Vishu.png'
+import ARC from '../2024-25/Images/Chetan.png'
 export const HelmInfo=[
     {
         img:Secy,

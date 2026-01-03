@@ -1,17 +1,16 @@
 import React from 'react'
-import compimage from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/Competetions/SummerCamp.png'
+import compimage from '../../assets/Competetions/Glider.png'
 import ExploreCard from './ExploreCard'
 
 const Vtolexplore = () => {
   return (
     <div>
         <div className='bg-black fixed h-screen w-full '>
-            <ExploreCard image={compimage} name="SummerCamp" registerlink="/register/vtol" whatsapp="" ps="" pastwinner=""
+            <ExploreCard image={compimage} name="SkyGlider" registerlink="/register/vtol" 
 
-                des="Summer Camp is an immersive training program held during the May–July summer break, focused on advanced drone systems and applications.
-Participants explore ROS-based drone workflows, gain a strong understanding of aerodynamics, and dive deep into end-to-end drone development.
-The camp covers everything from flight principles and simulations to real-world integration and testing.
-Successful participants earn entry into the club, making it the gateway to hands-on drone projects and competitive teams."
+                des="SkyGlide is an unpowered glider design challenge held by the AeroModelling Club IIT BHU.
+The competition focuses on testing aerodynamic efficiency, stability, and lightweight design through hand-launched gliders.
+Act as a platform to promote fundamentals of aeromodelling and aircraft design."
 
             ></ExploreCard>
     </div>

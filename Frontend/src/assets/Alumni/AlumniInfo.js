@@ -1,12 +1,12 @@
 
-import Kota_Harinarayana from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/Alumni/Alumni_image/Kota_Harinaryana_Sir.png'
-import Bishwajit_Behra from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/Alumni/Alumni_image/Bishwajit_Behra.png'
-import Shubham from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/Alumni/Alumni_image/Shubham.png'
-import Vedant_Kashyap from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/Alumni/Alumni_image/Tanisha_Singh.png'
-import Nikhil_Agarwal from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/Alumni/Alumni_image/Nikhil_Agarwal.png'
-import Tanisha_Singh from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/Alumni/Alumni_image/Tanisha_Singh.png'
-import Ayush_Jha from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/Alumni/Alumni_image/Ayush_Jha.png'
-import Abhishek_Chauhan from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/Alumni/Alumni_image/Abhishek_Chauhan.png'
+import Kota_Harinarayana from '../Alumni/Alumni_image/Kota_Harinaryana_Sir.png'
+import Bishwajit_Behra from '../Alumni/Alumni_image/Bishwajit_Behra.png'
+import Shubham from '../Alumni/Alumni_image/Shubham.png'
+import Vedant_Kashyap from '../Alumni/Alumni_image/Tanisha_Singh.png'
+import Nikhil_Agarwal from '../Alumni/Alumni_image/Nikhil_Agarwal.png'
+import Tanisha_Singh from '../Alumni/Alumni_image/Tanisha_Singh.png'
+import Ayush_Jha from '../Alumni/Alumni_image/Ayush_Jha.png'
+import Abhishek_Chauhan from '../Alumni/Alumni_image/Abhishek_Chauhan.png'
 
 export const AlumniInfo=[
     {

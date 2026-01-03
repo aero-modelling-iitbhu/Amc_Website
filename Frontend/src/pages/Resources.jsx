@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import rosimage from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/ResourcesImages/Ros/image.png'
-import gazeboimg from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/ResourcesImages/Ros/gazebo.png'
-import px4img from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/ResourcesImages/Px4/Px4img.png'
-import drone from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/ResourcesImages/Px4/drone.png'
-import cube from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/ResourcesImages/Ardupilot/cube.png'
-import motor from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/ResourcesImages/Components/Motor.png'
-import esc from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/ResourcesImages/Components/Flight.png'
+import rosimage from '../assets/ResourcesImages/Ros/image.png'
+import gazeboimg from '../assets/ResourcesImages/Ros/gazebo.png'
+import px4img from '../assets/ResourcesImages/Px4/Px4img.png'
+import drone from '../assets/ResourcesImages/Px4/drone.png'
+import cube from '../assets/ResourcesImages/Ardupilot/cube.png'
+import motor from '../assets/ResourcesImages/Components/Motor.png'
+import esc from '../assets/ResourcesImages/Components/Flight.png'
 
 const ResourceItem = ({ title, route, images, activeId, setActiveId, id, scrollText }) => {
     const navigate = useNavigate();

@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import bgVid from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/Competetions/e.mp4'
-import leftmain from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/Competetions/leftmain.svg'
-import rightmain from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/Competetions/rightmain.svg'
+import bgVid from '../../assets/Competetions/e.mp4'
+import leftmain from '../../assets/Competetions/leftmain.svg'
+import rightmain from '../../assets/Competetions/rightmain.svg'
 
 const ExploreCard = (props) => {
     return (
@@ -35,9 +35,6 @@ const ExploreCard = (props) => {
                             </a>
                             <a href={props.ps} className='vt323-regular text-white text-xl md:text-2xl text-center py-2 bg-black/80 border-2 border-purple-600 rounded-2xl hover:bg-white hover:text-black transition-all duration-300 w-full'>
                                 PS
-                            </a>
-                            <a href={props.pastwinner} className='vt323-regular text-white text-xl md:text-2xl text-center py-2 bg-black/80 border-2 border-green-600 rounded-2xl hover:bg-white hover:text-black transition-all duration-300 w-full'>
-                                Past Winners
                             </a>
                         </div>
                     </div>

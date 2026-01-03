@@ -1,5 +1,5 @@
 import React from 'react';
-import bgVideo from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/Competetions/Register/Registervideo.mp4';
+import bgVideo from '../../../assets/Competetions/Register/Registervideo.mp4';
 
 const nameOfComp = "AeroArcade"; //edit the name
 

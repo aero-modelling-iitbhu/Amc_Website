@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import axios from 'axios';
-import bgVideo from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/Competetions/Register/Registervideo.mp4';
-import upiImage from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/Payment/UpiImage.png';
+import bgVideo from '../../../assets/Competetions/Register/Registervideo.mp4';
+import upiImage from '../../../assets/Payment/UpiImage.png';
 
 const name = "Vtol'26";
 const totalPrice = 2000;
