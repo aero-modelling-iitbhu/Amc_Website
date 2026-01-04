@@ -1,9 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import mainCard from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/Competetions/cardCoponent/MainCard.svg'
-import bottomleft from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/Competetions/cardCoponent/BottomLeft.png'
-import bottomright from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/Competetions/cardCoponent/bottomright.png'
-
+import mainCard from "../../../assets/Competetions/cardCoponent/MainCard.svg";
+import bottomleft from "../../../assets/Competetions/cardCoponent/BottomLeft.png";
+import bottomright from "../../../assets/Competetions/cardCoponent/bottomright.png";
 const Card = (props) => {
     return (
         <div className='relative w-72 h-96 md:w-[20vw] md:h-[26vw] lg:w-[15vw] lg:h-[20vw] group transition-all duration-300 mx-auto'>
