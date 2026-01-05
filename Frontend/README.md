@@ -1,16 +1,64 @@
-# React + Vite
+# Aero Modelling Club IIT (BHU) – Official Website 🚀
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This repository contains the **official website of the Aero Modelling Club, IIT (BHU)**, designed and developed using modern web technologies.  
+The website serves as a centralized platform for **club information, events, competitions, projects, and registrations**, eliminating the need for external Google Forms.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
 
-## React Compiler
+- ⚛️ Modern frontend built with **React + Vite**
+- 🎞️ Smooth animations using **GSAP**
+- 🧾 **Direct registration system** (no Google Forms required)
+- 🗄️ Secure backend with **PostgreSQL + Prisma**
+- 📱 Fully responsive design
+- 🧩 Modular and scalable component architecture
+- ⚡ Fast development experience with **Vite HMR**
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Frontend
+- React
+- Vite
+- GSAP
+- CSS / Tailwind 
+
+### Backend
+- Node.js
+- Express
+- Prisma ORM
+- PostgreSQL
+
+---
+
+## 📂 Project Structure
+
+```text
+src/
+├── assets/
+│   ├── images/           # All images used in the website
+│   ├── videos/           # Background and promotional videos
+│   └── data/             # JS files containing club, projects, and secretary info
+│
+├── components/
+│   ├── Alumni/           # Card component for the Alumni
+│   ├── Explore/          # Explore page of the competetions
+│   └── ResourceComp/     # Have the card component for the Competetion,Project,Register and the resources 
+│
+├── pages/
+│   ├── Alumni.jsx
+│   ├── Authors.jsx
+│   ├── Projects.jsx
+│   ├── Competitions.jsx
+│   ├── Navbar.jsx
+│   └── Home.jsx
+|   └── Victory.jsx
+|   └── Members.jsx
+|   └── Resources.jsx
+|   
+│
+├── App.jsx               # Root component
+├── main.jsx              # Entry point
+└── index.css             # Global styles
