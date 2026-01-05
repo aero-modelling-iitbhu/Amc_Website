@@ -1,6 +1,6 @@
 import React from 'react'
-import bgvid from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/assets/Competetions/compvid.mp4'
-import Card from '/Users/sarvesh/Documents/Amc_Website/Frontend/src/components/ResourcesComp/CompCard/Card.jsx'
+import bgvid from "../assets/Competetions/compvid.mp4";
+import Card from "../components/ResourcesComp/CompCard/Card.jsx";
 import { Competetion } from '../assets/Competetions/Comp'
 
 const Competetions = () => {
